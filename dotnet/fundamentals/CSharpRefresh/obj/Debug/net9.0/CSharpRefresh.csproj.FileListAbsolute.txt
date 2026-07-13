@@ -1,0 +1,14 @@
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/bin/Debug/net9.0/CSharpRefresh
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/bin/Debug/net9.0/CSharpRefresh.deps.json
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/bin/Debug/net9.0/CSharpRefresh.runtimeconfig.json
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/bin/Debug/net9.0/CSharpRefresh.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/bin/Debug/net9.0/CSharpRefresh.pdb
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.AssemblyInfo.cs
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/refint/CSharpRefresh.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.pdb
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.genruntimeconfig.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/ref/CSharpRefresh.dll
