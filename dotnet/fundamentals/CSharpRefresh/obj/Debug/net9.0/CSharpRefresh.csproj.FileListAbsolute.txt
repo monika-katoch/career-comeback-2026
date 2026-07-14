@@ -12,3 +12,4 @@
 /Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.pdb
 /Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.genruntimeconfig.cache
 /Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/ref/CSharpRefresh.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/CSharpRefresh/obj/Debug/net9.0/CSharpRefresh.sourcelink.json
