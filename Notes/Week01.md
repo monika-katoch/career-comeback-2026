@@ -40,4 +40,28 @@ The concepts are rusty but familiar.
 ### AI Review Findings
 - AI often generates multiple valid solutions.
 - Some generated code may be unnecessary.
+
+
+## LINQ Alternatives Learned
+
+### Filtering
+
+Standard approach:
+
+employees.Where(e => e.Experience > 8)
+
+Alternative query syntax:
+
+from e in employees
+where e.Experience > 8
+select e
+
+Alternative List<T> specific method:
+
+employees.FindAll(e => e.Experience > 8)
+
+Preferred approach in modern .NET:
+Where()
+
+
 - Developer review remains essential.
