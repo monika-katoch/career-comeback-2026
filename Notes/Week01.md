@@ -170,3 +170,22 @@ Use `First()` when existence is guaranteed.
 
 Use `FirstOrDefault()` when the item may not exist.
 
+### Common Pitfall
+
+`FirstOrDefault()` may return `null`.
+
+Accessing properties directly without a null check can cause a `NullReferenceException`.
+
+Example:
+
+```csharp
+var employee = employees.FirstOrDefault(e => e.Department == "Legal");
+
+Console.WriteLine(employee.Name); // Throws NullReferenceException
+```
+
+Safe approach:
+
+```csharp
+Console.WriteLine(employee?.Name);
+```
