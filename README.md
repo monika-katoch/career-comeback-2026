@@ -1,4 +1,16 @@
-Repos structure:
+## Learning Philosophy
+
+- One topic at a time.
+- Learn by implementation.
+- Validate using AI tools.
+- Maintain weekly notes.
+- Build in public through GitHub commits.
+
+
+
+
+
+## Repos structure:
 
 career-comeback-2026
 │

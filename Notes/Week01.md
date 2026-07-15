@@ -1,21 +1,137 @@
 # Week 1
 
-## Covered Topics
+## C# Topics Covered
 
-- Records
-- With Expressions
-- Value Equality
-- Reference Equality
-- Init Properties
-- Required Properties
-- Nullable Reference Types
-- Pattern Matching
-- Switch Expressions
+### Records
+- Positional records
+- Value-based equality
+- Generated members:
+  - Equals()
+  - GetHashCode()
+  - ToString()
+  - Deconstruct()
+  - with expression support
 
-## Confidence
+### With Expression
+- Creates a copy of a record with modified values.
+- Original object remains unchanged.
 
-2/10
+Example:
+var updated = employee with { Experience = 13 };
 
-## Key Learnings
+### Init Properties
+- Values can only be assigned during object initialization.
 
-The concepts are rusty but familiar.
+### Required Properties
+- Forces consumers to initialize properties during object creation.
+
+### Nullable Reference Types
+- Helps prevent NullReferenceException.
+- Compiler warnings improve code quality.
+
+### Pattern Matching
+- Type pattern matching
+- Property pattern matching
+
+### Switch Expressions
+- Cleaner replacement for traditional switch statements.
+
+### Primary Constructors
+- Constructor parameters declared directly in type declaration.
+- Available for classes in C# 12.
+
+Example:
+public class Employee(string name)
+{
+    public string Name => name;
+}
+
+### Record vs Class
+
+Record:
+- Value equality
+- Supports with expression
+- Automatic ToString()
+- Automatic Deconstruct()
+
+Class:
+- Reference equality
+- No automatic with expression
+- Manual implementation required
+
+### Reference Equality vs Value Equality
+
+Record:
+new Employee("Monika",12) == new Employee("Monika",12)
+=> True
+
+Class:
+new Employee("Monika",12) == new Employee("Monika",12)
+=> False
+
+List:
+list1 == list2
+=> compares references
+
+list1.SequenceEqual(list2)
+=> compares values
+
+
+## LINQ Topics Covered
+
+### Where()
+Equivalent to SQL WHERE clause.
+
+Example:
+employees.Where(e => e.Experience >= 10)
+
+### Select()
+Equivalent to SQL SELECT clause.
+
+Example:
+employees.Select(e => e.Name)
+
+### OrderBy()
+Ascending sort.
+
+### OrderByDescending()
+Descending sort.
+
+### Any()
+Checks if at least one element satisfies the condition.
+
+### Max()
+Returns maximum value for selected property.
+
+### SequenceEqual()
+Compares collections element by element.
+Order matters.
+
+## AI Learning
+
+### Copilot Learnings
+
+- AI can generate multiple valid implementations.
+- Not every generated implementation should be accepted.
+- Developer review remains important.
+
+### Examples observed
+
+Good:
+- Where()
+- OrderByDescending()
+- Query Syntax
+
+Less useful:
+- Select(x => x)
+- Overcomplicated alternatives
+
+
+## Questions To Revisit Later
+
+- Deferred Execution
+- IEnumerable vs List
+- IQueryable
+- LINQ execution behavior
+
+- Developer review remains essential.

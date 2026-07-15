@@ -1,9 +1,27 @@
-# Copilot Prompt #1
+# C# Prompts
 
-Explain the difference between records and classes in C# with examples.
+Explain:
+- Record vs Class
+- Value Equality vs Reference Equality
+- Primary Constructor in C# 12
+
+Provide:
+- Real-world use cases
+- Interview explanation
 
 # Learning
 
 - Records use value equality.
 - Classes use reference equality by default.
 - Records work well for DTOs and immutable objects.
+
+# LINQ Prompts
+
+Explain:
+- Where() vs FindAll()
+- Method Syntax vs Query Syntax
+- SequenceEqual() vs == operator
+
+Include:
+- Performance considerations
+- SQL equivalent
