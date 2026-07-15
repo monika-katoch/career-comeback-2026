@@ -260,9 +260,32 @@ Console.WriteLine(list1.SequenceEqual(list2));  // True
 - Does order matter in SequenceEqual()?
 - How does SequenceEqual() work internally?
 
+## Q: Difference between `First()` and `FirstOrDefault()`?
 
+### Short Interview Answer
 
+`First()` throws an exception if no matching element exists.
 
+`FirstOrDefault()` returns the default value instead of throwing an exception.
+
+### Detailed Explanation
+
+Use `First()` when business logic guarantees the existence of the record.
+
+Use `FirstOrDefault()` when the record may not exist.
+
+### Example
+
+```csharp
+var employee = employees.First(e => e.Id == 1);
+
+var employee2 = employees.FirstOrDefault(e => e.Id == 100);
+```
+
+### Follow-up Questions
+
+- Difference between `First()` and `Single()`
+- Difference between `Single()` and `SingleOrDefault()`
 
 
 
