@@ -25,3 +25,17 @@ Explain:
 Include:
 - Performance considerations
 - SQL equivalent
+
+## LINQ Prompt
+
+Explain:
+
+- First()
+- FirstOrDefault()
+- Single()
+- SingleOrDefault()
+
+Include:
+- SQL equivalents
+- Performance considerations
+- Real-world examples
