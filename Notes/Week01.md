@@ -133,5 +133,40 @@ Less useful:
 - IEnumerable vs List
 - IQueryable
 - LINQ execution behavior
+- Developer review remain
 
-- Developer review remains essential.
+## LINQ - First() and FirstOrDefault()
+
+### First()
+
+- Returns the first matching element.
+- Throws `InvalidOperationException` if no matching element exists.
+
+Example:
+
+```csharp
+var employee = employees.First(e => e.Department == "HR");
+```
+
+---
+
+### FirstOrDefault()
+
+- Returns the first matching element.
+- Returns `default(T)` if no matching element exists.
+- For reference types, `default(T)` is `null`.
+
+Example:
+
+```csharp
+var employee = employees.FirstOrDefault(e => e.Department == "Legal");
+```
+
+---
+
+### When to Use
+
+Use `First()` when existence is guaranteed.
+
+Use `FirstOrDefault()` when the item may not exist.
+
