@@ -56,7 +56,7 @@ if (value is int years && years > 10)
 
 ///////// Record //////////
 
-var employee = new Employee(
+/*var employee = new Employee(
     "Monika",
     12,
     "Engineering"
@@ -66,10 +66,10 @@ var promotedEmployee = employee with
 {
     Experience = 13
 };
-Console.WriteLine(promotedEmployee);
+Console.WriteLine(promotedEmployee);*/
 
-/////////////////////////////////
-var employees = new List<CSharpRefresh.Employee>
+///////////////////////////////// 
+/*var employees = new List<CSharpRefresh.Employee>
 {
     new("Monika",12,"Engineering"),
     new("Rahul",5,"HR"),
@@ -91,4 +91,14 @@ public record Employee(
     string Name,
     int Experience,
     string Department
+);*/
+
+using CSharpRefresh;
+
+var employee = new Employee(
+    "Monika",
+    12
 );
+
+Console.WriteLine(employee.Name);
+Console.WriteLine(employee.Experience);
