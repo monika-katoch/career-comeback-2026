@@ -57,6 +57,7 @@ Console.WriteLine(updatedEmployee.Experience); // 13
 
 ### Follow-up Questions
 - Why is `with` mainly associated with records?
+- Can classes use `with` expressions?
 
 ## Q: What are `init` properties?
 
@@ -263,4 +264,16 @@ Console.WriteLine(list1.SequenceEqual(list2));  // True
 
 
 
-- Can classes use `with` expressions?
+
+
+
+
+
+
+
+
+
+
+
+
+
