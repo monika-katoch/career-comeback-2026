@@ -1,0 +1,15 @@
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/bin/Debug/net9.0/LINQPractice
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/bin/Debug/net9.0/LINQPractice.deps.json
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/bin/Debug/net9.0/LINQPractice.runtimeconfig.json
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/bin/Debug/net9.0/LINQPractice.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/bin/Debug/net9.0/LINQPractice.pdb
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.AssemblyInfo.cs
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.sourcelink.json
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/refint/LINQPractice.dll
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.pdb
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/LINQPractice.genruntimeconfig.cache
+/Users/user/RiderProjects/career-comeback-2026/dotnet/fundamentals/LINQPractice/obj/Debug/net9.0/ref/LINQPractice.dll
