@@ -311,7 +311,30 @@ var employee2 = employees.FirstOrDefault(e => e.Id == 100);
 - When should you use `Single()` instead of `First()`?
 - Which method is appropriate for unique database constraints?
 
+## Q: Difference between `Count() > 0` and `Any()`?
 
+### Short Interview Answer
+
+`Any()` is preferred for existence checks because it stops as soon as the first matching element is found.
+
+`Count()` evaluates all matching elements to calculate the total count.
+
+### Example
+
+```csharp
+employees.Any(e => e.Department == "HR");
+```
+
+Preferred over:
+
+```csharp
+employees.Count(e => e.Department == "HR") > 0;
+```
+
+### Follow-up Questions
+
+- Does `Any()` short-circuit?
+- When should `Count()` be used instead?
 
 
 
