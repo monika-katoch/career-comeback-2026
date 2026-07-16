@@ -77,3 +77,13 @@ Include:
 - Record vs Class behavior
 - Custom IEqualityComparer examples
 
+## LINQ Prompt
+
+Show me multiple implementations of:
+
+- GroupBy + Count
+- GroupBy + Average
+- GroupBy + MaxBy
+
+Compare readability and performance.
+
