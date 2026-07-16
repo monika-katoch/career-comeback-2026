@@ -292,5 +292,33 @@ var departments = employees
 - Uses `Equals()` and `GetHashCode()` internally.
 - Behavior differs for classes and records because of equality semantics.
 
+## LINQ - GroupBy()
 
+### Purpose
+
+Groups records by a key.
+
+Example:
+
+```csharp
+employees.GroupBy(e => e.Department);
+```
+
+### Common Aggregations
+
+```csharp
+group.Count()
+group.Sum()
+group.Average()
+group.Min()
+group.Max()
+```
+
+### Common Use Cases
+
+- Employees by Department
+- Orders by Status
+- Sales by Region
+- Revenue by Month
+- Tickets by Priority
 
