@@ -271,4 +271,26 @@ Preferred over:
 ```csharp
 employees.Count(e => e.Department == "HR") > 0;
 ```
+## LINQ - Distinct()
+
+### Purpose
+
+Removes duplicate values from a sequence.
+
+### Example
+
+```csharp
+var departments = employees
+    .Select(e => e.Department)
+    .Distinct();
+```
+
+### Important Notes
+
+- Keeps the first occurrence.
+- Preserves order.
+- Uses `Equals()` and `GetHashCode()` internally.
+- Behavior differs for classes and records because of equality semantics.
+
+
 
