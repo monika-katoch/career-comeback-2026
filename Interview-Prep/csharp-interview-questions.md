@@ -436,6 +436,78 @@ Result:
 Employee object for Monika
 ```
 
+# ToDictionary()
+
+## Q: What happens if duplicate keys are passed to ToDictionary()?
+
+### Answer
+
+`ToDictionary()` throws:
+
+```text
+ArgumentException:
+An item with the same key has already been added.
+```
+
+Example:
+
+```csharp
+employees.ToDictionary(e => e.Department);
+```
+
+throws because:
+
+```text
+Engineering
+Engineering
+Engineering
+```
+
+contains duplicate keys.
+
+---
+
+## Q: What is the time complexity of Dictionary lookup?
+
+### Answer
+
+Average case:
+
+```text
+O(1)
+```
+
+Worst case because of hash collisions:
+
+```text
+O(n)
+```
+
+---
+
+## Q: Difference between GroupBy() and ToDictionary()?
+
+| Feature | GroupBy | ToDictionary |
+|----------|---------|-------------|
+| Duplicate Keys | Allowed | Not Allowed |
+| One Key → Many Values | Yes | No |
+| Lookup Performance | Enumeration | O(1) |
+
+---
+
+## Q: Why are dictionaries heavily used in enterprise applications?
+
+### Answer
+
+Because they provide extremely fast lookup performance and are commonly used for:
+
+- Caching
+- Permission mappings
+- Configuration storage
+- API response transformations
+- In-memory reference data
+
+
 
 
 
