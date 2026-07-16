@@ -288,7 +288,28 @@ var employee2 = employees.FirstOrDefault(e => e.Id == 100);
 - Difference between `Single()` and `SingleOrDefault()`
 
 
+## Q: Difference between `First()`, `FirstOrDefault()`, `Single()` and `SingleOrDefault()`?
 
+### Short Interview Answer
+
+- `First()` requires at least one match.
+- `FirstOrDefault()` allows zero or more matches and returns `null` when none exist.
+- `Single()` requires exactly one match.
+- `SingleOrDefault()` allows zero or one match but throws an exception if multiple matches exist.
+
+### Example
+
+| Method | 0 Matches | 1 Match | Multiple Matches |
+|---------|----------|---------|------------------|
+| First() | Exception | Return item | Return first item |
+| FirstOrDefault() | null | Return item | Return first item |
+| Single() | Exception | Return item | Exception |
+| SingleOrDefault() | null | Return item | Exception |
+
+### Follow-up Questions
+
+- When should you use `Single()` instead of `First()`?
+- Which method is appropriate for unique database constraints?
 
 
 
