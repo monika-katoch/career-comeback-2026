@@ -337,6 +337,28 @@ employees.Count(e => e.Department == "HR") > 0;
 - When should `Count()` be used instead?
 
 
+## Q: Which is preferred and why?
+
+```csharp
+employees.Where(e => e.Department == "HR").Count();
+```
+
+or
+
+```csharp
+employees.Count(e => e.Department == "HR");
+```
+
+### Interview Answer
+
+Prefer:
+
+```csharp
+employees.Count(e => e.Department == "HR");
+```
+
+because it is more concise, avoids unnecessary intermediate enumerables, and is considered idiomatic LINQ.
+
 
 
 
