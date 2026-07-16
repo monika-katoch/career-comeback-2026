@@ -39,3 +39,18 @@ Include:
 - SQL equivalents
 - Performance considerations
 - Real-world examples
+
+## LINQ Prompt
+
+Explain the difference between:
+
+- First()
+- FirstOrDefault()
+- Single()
+- SingleOrDefault()
+
+Include:
+- SQL equivalents
+- Performance considerations
+- Real-world use cases
+
