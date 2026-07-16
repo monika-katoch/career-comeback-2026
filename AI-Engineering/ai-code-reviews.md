@@ -36,3 +36,39 @@ Benefits:
 - Better readability
 - Avoids unnecessary intermediate enumerables
 - Considered idiomatic LINQ
+
+# Dictionary Optimization
+
+## Less Efficient
+
+```csharp
+var employee = employees.First(e => e.Name == "Monika");
+```
+
+Complexity:
+
+```text
+O(n)
+```
+
+---
+
+## Optimized
+
+```csharp
+var employeeDictionary = employees.ToDictionary(e => e.Name);
+
+var employee = employeeDictionary["Monika"];
+```
+
+Complexity:
+
+```text
+O(1)
+```
+
+## Reason
+
+Dictionaries use hash tables internally and provide near constant-time lookups.
+
+
