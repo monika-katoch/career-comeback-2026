@@ -189,3 +189,27 @@ Safe approach:
 ```csharp
 Console.WriteLine(employee?.Name);
 ```
+
+
+## LINQ - Single() and SingleOrDefault()
+
+### Single()
+
+- Returns the matching element if exactly one exists.
+- Throws exception if no match exists.
+- Throws exception if multiple matches exist.
+
+### SingleOrDefault()
+
+- Returns the matching element if exactly one exists.
+- Returns `null` if no match exists.
+- Throws exception if multiple matches exist.
+
+### Comparison
+
+| Method | 0 Matches | 1 Match | Multiple Matches |
+|---------|----------|---------|------------------|
+| First() | Exception | Return item | Return first item |
+| FirstOrDefault() | null | Return item | Return first item |
+| Single() | Exception | Return item | Exception |
+| SingleOrDefault() | null | Return item | Exception |
