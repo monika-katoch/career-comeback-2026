@@ -360,6 +360,37 @@ employees.Count(e => e.Department == "HR");
 because it is more concise, avoids unnecessary intermediate enumerables, and is considered idiomatic LINQ.
 
 
+## Q: Why can `Distinct()` produce different results for classes and records?
+
+### Short Interview Answer
+
+`Distinct()` uses `Equals()` and `GetHashCode()` internally.
+
+Records implement value equality automatically, while classes use reference equality by default.
+
+### Example
+
+```csharp
+var employees = new List<Employee>
+{
+    new("Monika",12),
+    new("Monika",12)
+};
+
+Console.WriteLine(employees.Distinct().Count());
+```
+
+### Result
+
+- Record → `1`
+- Class → `2`
+
+### Follow-up Questions
+
+- How does `Distinct()` work internally?
+- How can custom classes support value equality?
+
+
 
 
 
