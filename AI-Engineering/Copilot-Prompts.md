@@ -87,3 +87,20 @@ Show me multiple implementations of:
 
 Compare readability and performance.
 
+# LINQ Prompt
+
+Compare the following approaches:
+
+- First()
+- Dictionary lookup
+- GroupBy()
+- ToDictionary()
+
+Include:
+
+- Time complexity
+- Memory trade-offs
+- Readability
+- Enterprise use cases
+
+
