@@ -322,3 +322,49 @@ group.Max()
 - Revenue by Month
 - Tickets by Priority
 
+# LINQ - ToDictionary()
+
+## Purpose
+
+Converts a sequence into a dictionary for fast lookups.
+
+## Syntax
+
+```csharp
+var employeeDictionary = employees.ToDictionary(
+    e => e.Name,
+    e => e.Salary);
+```
+
+## Result
+
+```text
+Monika -> 150000
+Rahul -> 70000
+Amit -> 100000
+Priya -> 60000
+Neha -> 130000
+```
+
+## Important Notes
+
+- Dictionary keys must be unique.
+- Duplicate keys throw `ArgumentException`.
+- Dictionary lookup is approximately `O(1)`.
+- Uses hash tables internally.
+
+## Example
+
+```csharp
+var employeeDictionary = employees.ToDictionary(e => e.Name);
+
+Console.WriteLine(employeeDictionary["Monika"].Salary);
+```
+
+## Output
+
+```text
+150000
+```
+
+
