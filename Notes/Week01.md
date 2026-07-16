@@ -213,3 +213,62 @@ Console.WriteLine(employee?.Name);
 | FirstOrDefault() | null | Return item | Return first item |
 | Single() | Exception | Return item | Exception |
 | SingleOrDefault() | null | Return item | Exception |
+
+
+## LINQ - Count()
+
+### Count()
+
+Returns the number of elements in a collection.
+
+Example:
+
+```csharp
+employees.Count();
+```
+
+---
+
+### Count with Predicate
+
+Returns the number of elements matching the condition.
+
+```csharp
+employees.Count(e => e.Department == "Engineering");
+```
+
+Equivalent SQL:
+
+```sql
+SELECT COUNT(*)
+FROM Employees
+WHERE Department = 'Engineering'
+```
+
+---
+
+### Important Notes
+
+- `Count()` returns `0` when no matching records exist.
+- `Count()` never throws an exception due to missing records.
+
+---
+
+### Count() vs Any()
+
+Use `Any()` when checking existence.
+
+Use `Count()` when the total number of matching records is required.
+
+Example:
+
+```csharp
+employees.Any(e => e.Department == "HR");
+```
+
+Preferred over:
+
+```csharp
+employees.Count(e => e.Department == "HR") > 0;
+```
+
