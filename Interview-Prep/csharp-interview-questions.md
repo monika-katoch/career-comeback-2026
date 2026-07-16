@@ -390,6 +390,53 @@ Console.WriteLine(employees.Distinct().Count());
 - How does `Distinct()` work internally?
 - How can custom classes support value equality?
 
+## Q: What does GroupBy() return?
+
+`GroupBy()` returns:
+
+```csharp
+IEnumerable<IGrouping<TKey, TElement>>
+```
+
+Example:
+
+```csharp
+IEnumerable<IGrouping<string, Employee>>
+```
+
+---
+
+## Q: Difference between Max() and MaxBy()?
+
+### Max()
+
+Returns the maximum value.
+
+```csharp
+employees.Max(e => e.Salary)
+```
+
+Result:
+
+```text
+150000
+```
+
+### MaxBy()
+
+Returns the object having the maximum value.
+
+```csharp
+employees.MaxBy(e => e.Salary)
+```
+
+Result:
+
+```text
+Employee object for Monika
+```
+
+
 
 
 
