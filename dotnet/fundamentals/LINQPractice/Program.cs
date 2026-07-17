@@ -204,7 +204,7 @@ var mulDept = employees.ToDictionary(e => e.Department);
 Console.WriteLine(mulDept["Engineering"]);*/
 
 ///////////-------JOIN---------
-//Dataset 1 — Employees
+/*//Dataset 1 — Employees
 var employeesSet = new List<Employee>
 {
     new("Monika", 12, 1),
@@ -237,8 +237,6 @@ foreach (var item in result)
 {
     Console.WriteLine($"{item.Name} - {item.DepartmentName}");
 }
-
-
 public record Employee(
     string Name,
     int Experience,
@@ -246,4 +244,55 @@ public record Employee(
 
 public record Department(
     int Id,
-    string Name);
+    string Name);*/
+    
+/////-----------------------------------------------/////////////
+
+var employees = new List<Employee>
+{
+    new("Monika", new List<string>
+    {
+        "C#",
+        ".NET",
+        "Angular"
+    }),
+
+    new("Rahul", new List<string>
+    {
+        "SQL",
+        "Azure"
+    }),
+
+    new("Amit", new List<string>
+    {
+        "Angular",
+        "JavaScript"
+    })
+};
+
+//Exercise 1: Write a LINQ query to print all skills using SelectMany().
+var result = employees.SelectMany(e=>e.Skills);
+foreach (var skill in result)
+{
+    Console.WriteLine(skill);
+}
+
+//Exercise 2: Write a LINQ query to print all unique skills.
+var resultList = employees.SelectMany(e=>e.Skills).Distinct();
+foreach (var skill in resultList)
+{
+    Console.WriteLine(skill);
+}
+
+//Exercise 3: Write a LINQ query to count the total number of skills including duplicates.
+var totalSkills = employees.SelectMany(e=>e.Skills).Count();
+Console.WriteLine(totalSkills);
+
+//Exercise 4: Write a LINQ query to count the number of unique skills.
+var uniqueSkills = employees.SelectMany(e=>e.Skills).Distinct().Count();
+Console.WriteLine(uniqueSkills);
+
+public record Employee(
+    string Name,
+    List<string> Skills);
+
