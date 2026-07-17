@@ -103,4 +103,13 @@ Include:
 - Readability
 - Enterprise use cases
 
+## LINQ Join Prompt
 
+Show me:
+
+- Join()
+- GroupJoin()
+- Left Join implementation
+- SQL equivalent queries
+- Performance considerations
+- EF Core generated SQL
