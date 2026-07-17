@@ -507,7 +507,53 @@ Because they provide extremely fast lookup performance and are commonly used for
 - API response transformations
 - In-memory reference data
 
+# LINQ Join
 
+## What SQL join does LINQ Join() represent?
+
+Answer:
+
+```text
+INNER JOIN
+```
+
+Only matching records are returned.
+
+---
+
+## What happens when no match exists in Join()?
+
+The record is excluded from the result set.
+
+No exception is thrown.
+
+---
+
+## How is LEFT JOIN implemented in LINQ?
+
+```text
+GroupJoin() + DefaultIfEmpty()
+```
+
+Typical pattern:
+
+```csharp
+employees
+    .GroupJoin(...)
+    .SelectMany(
+        x => x.Group.DefaultIfEmpty(),
+        ...
+    );
+```
+
+---
+
+## Difference between INNER JOIN and LEFT JOIN
+
+| INNER JOIN | LEFT JOIN |
+|------------|-----------|
+| Only matching rows | All left rows |
+| Missing rows disappear | Missing rows become null |
 
 
 
