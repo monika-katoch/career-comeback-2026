@@ -557,6 +557,67 @@ employees
 
 
 
+# Select vs SelectMany
+
+## What is the difference between Select() and SelectMany()?
+
+### Select()
+
+Transforms one item into one result.
+
+Returns:
+
+```csharp
+IEnumerable<List<T>>
+```
+
+when the selector returns collections.
+
+---
+
+### SelectMany()
+
+Transforms one item into many results and flattens them into a single sequence.
+
+Returns:
+
+```csharp
+IEnumerable<T>
+```
+
+---
+
+## Example
+
+```csharp
+employees.Select(e => e.Skills);
+```
+
+returns:
+
+```text
+[
+    [C#, .NET, Angular],
+    [SQL, Azure]
+]
+```
+
+```csharp
+employees.SelectMany(e => e.Skills);
+```
+
+returns:
+
+```text
+[
+    C#,
+    .NET,
+    Angular,
+    SQL,
+    Azure
+]
+```
+
 
 
 

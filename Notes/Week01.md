@@ -412,5 +412,43 @@ All left-side rows survive.
 Missing right-side values become null.
 ```
 
+# LINQ - SelectMany()
+
+## Purpose
+
+Flattens nested collections into a single sequence.
+
+### Select()
+
+```csharp
+employees.Select(e => e.Skills)
+```
+
+Result:
+
+```csharp
+IEnumerable<List<string>>
+```
+
+### SelectMany()
+
+```csharp
+employees.SelectMany(e => e.Skills)
+```
+
+Result:
+
+```csharp
+IEnumerable<string>
+```
+
+## Common Use Cases
+
+- Employee skills
+- Orders and order items
+- Departments and employees
+- Categories and products
+- API response flattening
+
 
 
