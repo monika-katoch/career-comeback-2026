@@ -127,3 +127,18 @@ Include:
 - Collection flattening
 - Real-world use cases
 - Performance considerations
+
+## LINQ Prompt
+
+Compare:
+
+- Where()
+- TakeWhile()
+- Skip()
+- SkipWhile()
+
+Include:
+- Evaluation behavior
+- Execution order
+- Real-world use cases
+- Performance implications
