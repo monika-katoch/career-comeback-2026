@@ -113,3 +113,17 @@ Show me:
 - SQL equivalent queries
 - Performance considerations
 - EF Core generated SQL
+
+## LINQ Prompt
+
+Compare:
+
+- Select()
+- SelectMany()
+
+Include:
+
+- Return types
+- Collection flattening
+- Real-world use cases
+- Performance considerations
