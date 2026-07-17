@@ -450,5 +450,55 @@ IEnumerable<string>
 - Categories and products
 - API response flattening
 
+# LINQ - Partitioning Operators
 
+## Take()
+
+Returns first N elements.
+
+```csharp
+numbers.Take(3)
+```
+
+---
+
+## Skip()
+
+Skips first N elements.
+
+```csharp
+numbers.Skip(3)
+```
+
+---
+
+## TakeWhile()
+
+Returns elements until condition becomes false.
+
+```csharp
+numbers.TakeWhile(x => x < 50)
+```
+
+---
+
+## SkipWhile()
+
+Skips elements until condition becomes false.
+
+```csharp
+numbers.SkipWhile(x => x < 50)
+```
+
+---
+
+## Real World Usage
+
+Pagination:
+
+```csharp
+employees
+    .Skip((page - 1) * pageSize)
+    .Take(pageSize);
+```
 

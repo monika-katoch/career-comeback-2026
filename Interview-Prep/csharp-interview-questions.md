@@ -617,6 +617,36 @@ returns:
     Azure
 ]
 ```
+# Partitioning Operators
+
+## Difference between Where() and TakeWhile()
+
+| Where | TakeWhile |
+|-------|-----------|
+| Evaluates all elements | Stops at first failure |
+| Returns all matching values | Returns values until first failure |
+
+---
+
+## Difference between Skip() and SkipWhile()
+
+| Skip | SkipWhile |
+|------|-----------|
+| Skips fixed count | Skips based on condition |
+| Example: Skip(5) | Example: SkipWhile(x => x < 50) |
+
+---
+
+## Common use case for Skip() and Take()
+
+Pagination APIs:
+
+```csharp
+employees
+    .Skip((pageNumber - 1) * pageSize)
+    .Take(pageSize);
+```
+
 
 
 
