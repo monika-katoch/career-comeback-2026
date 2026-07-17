@@ -34,6 +34,7 @@ namespace LINQPractice
     }
 }*/
 
+using System.Globalization;
 using LINQPractice;
 
 /*var employees = new List<Employee>
@@ -246,9 +247,9 @@ public record Department(
     int Id,
     string Name);*/
     
-/////-----------------------------------------------/////////////
+/////--------------------SelectMany---------------------------/////////////
 
-var employees = new List<Employee>
+/*var employees = new List<Employee>
 {
     new("Monika", new List<string>
     {
@@ -294,5 +295,27 @@ Console.WriteLine(uniqueSkills);
 
 public record Employee(
     string Name,
-    List<string> Skills);
+    List<string> Skills);*/
+
+///////////////////-------SkillWhile() TakeWhile()------------///////////////
+var numbers = new List<int>
+{
+    10,20,30,40,50,60,70,80
+};
+
+//Exercise 1: Write a LINQ query using TakeWhile() to print:
+var numbersRes = numbers.TakeWhile(n => n < 60);
+foreach (var number in numbersRes)
+{
+    Console.WriteLine(number);
+}
+
+//Exercise 2: Write a LINQ query using SkipWhile() to print:
+var numberSkip = numbers.SkipWhile(n => n < 60);
+foreach (var number in numberSkip)
+{
+    Console.WriteLine(number);
+}
+
+//
 
