@@ -367,4 +367,50 @@ Console.WriteLine(employeeDictionary["Monika"].Salary);
 150000
 ```
 
+# LINQ Join
+
+## Join()
+
+Equivalent to SQL INNER JOIN.
+
+Example:
+
+```csharp
+employees.Join(
+    departments,
+    e => e.DepartmentId,
+    d => d.Id,
+    (e, d) => new
+    {
+        Employee = e.Name,
+        Department = d.Name
+    });
+```
+
+## Left Join
+
+LINQ does not provide a direct LeftJoin() method.
+
+Use:
+
+```text
+GroupJoin() + DefaultIfEmpty()
+```
+
+## Mental Model
+
+INNER JOIN:
+
+```text
+Only matching rows survive.
+```
+
+LEFT JOIN:
+
+```text
+All left-side rows survive.
+Missing right-side values become null.
+```
+
+
 
