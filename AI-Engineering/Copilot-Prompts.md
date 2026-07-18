@@ -142,3 +142,20 @@ Include:
 - Execution order
 - Real-world use cases
 - Performance implications
+
+## LINQ Prompt
+
+Compare:
+
+- Sum()
+- Average()
+- Min()
+- Max()
+- Aggregate()
+
+Include:
+
+- Return types
+- Performance
+- SQL translation in EF Core
+- Real-world examples
