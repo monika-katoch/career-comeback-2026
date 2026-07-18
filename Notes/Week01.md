@@ -502,3 +502,68 @@ employees
     .Take(pageSize);
 ```
 
+# LINQ - Aggregation Operators
+
+## Sum()
+
+Calculates the total.
+
+```csharp
+employees.Sum(e => e.Salary);
+```
+
+---
+
+## Average()
+
+Calculates the average value.
+
+```csharp
+employees.Average(e => e.Experience);
+```
+
+---
+
+## Min()
+
+Returns the smallest value.
+
+```csharp
+employees.Min(e => e.Salary);
+```
+
+---
+
+## Max()
+
+Returns the largest value.
+
+```csharp
+employees.Max(e => e.Salary);
+```
+
+---
+
+## Aggregate()
+
+General-purpose aggregation operator.
+
+Examples:
+
+```csharp
+numbers.Aggregate((a,b)=>a+b);
+
+numbers.Aggregate((a,b)=>a*b);
+
+words.Aggregate((a,b)=>a+","+b);
+```
+
+---
+
+## Real-world Usage
+
+- Dashboard totals
+- Salary reports
+- KPI calculations
+- Invoice totals
+- Revenue calculations
