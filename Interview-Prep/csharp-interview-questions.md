@@ -647,7 +647,63 @@ employees
     .Take(pageSize);
 ```
 
+# LINQ Aggregation Operators
 
+## Difference between Sum() and Aggregate()
+
+### Sum()
+
+- Specialized aggregation
+- Only performs addition
+- Easy to read
+- Better for numeric totals
+
+Example:
+
+```csharp
+employees.Sum(e => e.Salary);
+```
+
+---
+
+### Aggregate()
+
+General aggregation operator.
+
+Can perform:
+
+- Addition
+- Multiplication
+- String concatenation
+- Custom accumulation logic
+
+Example:
+
+```csharp
+numbers.Aggregate((a,b)=>a*b);
+```
+
+---
+
+## Common Interview Questions
+
+### Which method would you use to multiply all values?
+
+Answer:
+
+```csharp
+Aggregate()
+```
+
+---
+
+### Which method would you use to calculate total salary?
+
+Answer:
+
+```csharp
+Sum()
+```
 
 
 
