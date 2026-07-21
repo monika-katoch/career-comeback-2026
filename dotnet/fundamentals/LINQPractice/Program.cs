@@ -317,5 +317,28 @@ foreach (var number in numberSkip)
     Console.WriteLine(number);
 }
 
-//
+////////////////-----------Aggregation Functions---------------/////////
+var employees = new List<Employee>
+{
+    new("Monika", 12, "Engineering", 150000),
+    new("Rahul", 5, "HR", 70000),
+    new("Amit", 8, "Engineering", 100000),
+    new("Priya", 2, "Finance", 60000),
+    new("Neha", 10, "Engineering", 130000)
+};
+//Exercise 1: Write a LINQ query to calculate the total salary.
+var totalSal = employees.Sum(e => e.Salary);
+Console.WriteLine($"Total Salary: {totalSal}");
+
+//Exercise 2: Write a LINQ query to calculate the average experience.
+var avgExp =  employees.Average(e => e.Experience);
+Console.WriteLine($"Average Experience: {avgExp}");
+
+//Exercise 3: Write a LINQ query to find the minimum experience.
+var minExp = employees.Min(e=>e.Experience);
+Console.WriteLine($"Minimum Experience: {minExp}");
+
+//Exercise 4: Write a LINQ query to find the maximum salary.
+var maxSal = employees.Max(e=>e.Salary);
+Console.WriteLine($"Maximum Salary: {maxSal}");
 
