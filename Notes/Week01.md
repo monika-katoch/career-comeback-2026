@@ -567,3 +567,209 @@ words.Aggregate((a,b)=>a+","+b);
 - KPI calculations
 - Invoice totals
 - Revenue calculations
+
+## LINQ Quantifier Operators
+
+### All()
+
+`All()` checks whether **every element** in a collection satisfies a specified condition.
+
+```csharp
+var result = numbers.All(n => n > 0);
+```
+
+Returns:
+
+- `true` if every element satisfies the condition.
+- `false` if at least one element fails the condition.
+
+Example:
+
+```csharp
+var numbers = new List<int>
+{
+    10, 20, 30, 40, 50
+};
+
+var result = numbers.All(n => n > 0);
+
+Console.WriteLine(result);
+```
+
+Output:
+
+```text
+true
+```
+
+### Important Edge Case
+
+For an empty collection:
+
+```csharp
+var numbers = new List<int>();
+
+var result = numbers.All(n => n > 0);
+```
+
+The result is:
+
+```text
+true
+```
+
+No exception is thrown.
+
+This is because there is no element that violates the condition.
+
+### All() vs Any()
+
+```csharp
+numbers.All(n => n > 0);
+```
+
+Asks:
+
+> Do all elements satisfy the condition?
+
+```csharp
+numbers.Any(n => n > 0);
+```
+
+Asks:
+
+> Does at least one element satisfy the condition?
+
+---
+
+## Contains()
+
+`Contains()` checks whether a collection contains a specific value.
+
+Example:
+
+```csharp
+var numbers = new List<int>
+{
+    10, 20, 30, 40, 50
+};
+
+var result = numbers.Contains(30);
+```
+
+Output:
+
+```text
+true
+```
+
+If the value does not exist:
+
+```csharp
+var result = numbers.Contains(100);
+```
+
+Output:
+
+```text
+false
+```
+
+### Contains() with Projected Values
+
+When working with objects, `Select()` can be used to project a property before calling `Contains()`.
+
+Check whether an employee named Monika exists:
+
+```csharp
+var result = employees
+    .Select(e => e.Name)
+    .Contains("Monika");
+```
+
+Check whether Engineering exists as a department:
+
+```csharp
+var result = employees
+    .Select(e => e.Department)
+    .Contains("Engineering");
+```
+
+### Contains() vs Any()
+
+`Contains()` checks for a **specific value**.
+
+```csharp
+employees
+    .Select(e => e.Name)
+    .Contains("Monika");
+```
+
+`Any()` checks whether **at least one element satisfies a condition**.
+
+```csharp
+employees.Any(e => e.Name == "Monika");
+```
+
+For example, to check whether any employee has a salary greater than 100000:
+
+```csharp
+employees.Any(e => e.Salary > 100000);
+```
+
+This is preferred over:
+
+```csharp
+employees
+    .Select(e => e.Salary)
+    .Contains(100000);
+```
+
+because `Contains(100000)` checks for a salary **exactly equal to 100000**, while the requirement is to find a salary **greater than 100000**.
+
+### Contains() and Equality
+
+`Contains()` relies on equality comparison.
+
+For a normal class, reference equality is used by default unless equality is overridden.
+
+For a record, value-based equality is used by default.
+
+Example with a record:
+
+```csharp
+public record Employee(
+    string Name,
+    int Experience,
+    string Department,
+    int Salary);
+```
+
+Two records with the same property values are considered equal:
+
+```csharp
+new Employee("Monika", 12, "Engineering", 150000)
+==
+new Employee("Monika", 12, "Engineering", 150000)
+```
+
+Result:
+
+```text
+true
+```
+
+Therefore, `Contains()` can find a matching record based on its values.
+
+### Key Concept
+
+```text
+Contains()
+    ↓
+Equality comparison
+    ↓
+Class → reference equality by default
+Record → value equality by default
+```
+
+
