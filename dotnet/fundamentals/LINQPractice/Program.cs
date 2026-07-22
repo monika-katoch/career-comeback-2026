@@ -416,7 +416,7 @@ foreach (var item in castRes)
 
 
 //------------ZIP()-------------//
-var employeeNames = employees.Select(e => e.Name);
+/*var employeeNames = employees.Select(e => e.Name);
 var departments = employees.Select(e => e.Department);
 var enumEmp = employeeNames.ToList();
 var enumDep = departments.ToList();
@@ -447,4 +447,32 @@ var result = enumEmp.Zip(
 foreach (var emp in result)
 {
     Console.WriteLine(emp);
+}*/
+
+///////-----------RANGE---------///////////
+
+//Exercise 1: Write a LINQ query using Range() to print:
+var res = Enumerable.Range(1, 10);
+foreach (var i in res)
+{
+    Console.WriteLine(i);
 }
+
+//Exercise 2: Write a LINQ query using Range() to print:
+var resList = Enumerable.Range(10,6);
+foreach (var i in resList)
+{
+    Console.WriteLine(i);
+}
+
+//Exercise 3: Use Range() with LINQ to print only the even numbers from 1 to 10.
+var evenList = Enumerable.Range(1, 10).Where(n => n % 2 == 0);
+foreach (var i in evenList)
+{
+    Console.WriteLine(i);
+}
+
+//Exercise 4: Use Range() with LINQ to calculate the sum of numbers from 1 to 10.
+var rangeSum = Enumerable.Range(1, 10).Sum();
+Console.WriteLine(rangeSum);
+
