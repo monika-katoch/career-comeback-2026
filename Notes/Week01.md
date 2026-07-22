@@ -1015,5 +1015,91 @@ Output:
 
 `Repeat()` → Same value repeated
 
+### Empty()
+
+- `Enumerable.Empty<T>()` returns an empty sequence of the specified type.
+- It contains zero elements.
+- It is useful when a method needs to return an empty sequence instead of `null`.
+- `Count()` returns `0`.
+- `Any()` returns `false`.
+- `foreach` performs zero iterations.
+- It can be safely enumerated without a `NullReferenceException`.
+- `Enumerable.Empty<T>()` returns an empty sequence, while `new List<T>()` creates a mutable empty list.
+
+Example:
+
+var result = Enumerable.Empty<int>();
+
+Console.WriteLine(result.Count());
+
+Output:
+
+0
+
+Using `Any()`:
+
+var result = Enumerable.Empty<string>();
+
+Console.WriteLine(result.Any());
+
+Output:
+
+False
+
+Using `foreach`:
+
+var result = Enumerable.Empty<Employee>();
+
+foreach (var employee in result)
+{
+    Console.WriteLine(employee);
+}
+
+Nothing is printed because the sequence contains zero elements.
+
+### Returning Empty Sequence Instead of null
+
+Example:
+
+public IEnumerable<Employee> GetEmployees()
+{
+    if (employees == null)
+    {
+        return Enumerable.Empty<Employee>();
+    }
+
+    return employees;
+}
+
+This allows callers to safely enumerate the result without checking for `null`.
+
+Example:
+
+foreach (var employee in GetEmployees())
+{
+    Console.WriteLine(employee);
+}
+
+### Empty Sequence vs Empty List
+
+`Enumerable.Empty<int>()`:
+
+- Returns an empty sequence.
+- Intended for representing an empty `IEnumerable<T>`.
+- Cannot be directly modified using `Add()`.
+
+`new List<int>()`:
+
+- Creates an empty `List<int>`.
+- Is mutable.
+- Supports operations such as `Add()` and `Remove()`.
+
+### Key Point
+
+`Enumerable.Empty<T>()` returns a valid empty sequence instead of `null`, making it safer for callers to enumerate.
+
+### Easy Way to Remember
+
+`Empty<T>()` → Valid sequence with zero elements.
 
 
