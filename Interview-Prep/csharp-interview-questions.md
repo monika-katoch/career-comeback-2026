@@ -900,6 +900,80 @@ false
 The value `10` does not satisfy `10 > 10`.
 
 
+---
+## LINQ - OfType() and Cast()
+
+### 1. What is OfType<T>() in LINQ?
+
+`OfType<T>()` filters a collection and returns only elements that are compatible with the specified type.
+
+---
+
+### 2. What happens when OfType<T>() finds no matching elements?
+
+It returns an empty sequence.
+
+It does not throw an exception and does not return `null`.
+
+---
+
+### 3. What is Cast<T>() in LINQ?
+
+`Cast<T>()` attempts to cast every element in a collection to the specified type.
+
+---
+
+### 4. What happens if Cast<T>() encounters an incompatible type?
+
+It throws an `InvalidCastException` when the incompatible element is encountered during enumeration.
+
+---
+
+### 5. What is the difference between OfType<T>() and Cast<T>()?
+
+`OfType<T>()` filters a sequence and returns only elements compatible with the specified type. Incompatible elements are ignored.
+
+`Cast<T>()` attempts to cast every element to the specified type. If an element cannot be cast, an `InvalidCastException` is thrown during enumeration.
+
+---
+
+### 6. When would you use OfType<T>()?
+
+Use `OfType<T>()` when working with a mixed-type collection and you only want elements of a particular type.
+
+---
+
+### 7. When would you use Cast<T>()?
+
+Use `Cast<T>()` when you know that all elements in the sequence are compatible with the target type and you want to cast them to that type.
+
+---
+
+### 8. Are OfType() and Cast() deferred execution operators?
+
+Yes. Both use deferred execution.
+
+The query is evaluated when the result is enumerated, such as with `foreach`, or when a terminal operation such as `ToList()` is executed.
+
+---
+
+### 9. What is the output?
+
+```csharp
+var items = new List<object>
+{
+    10,
+    "Monika",
+    30
+};
+
+var result = items.OfType<int>();
+
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
+```
 
 
 
