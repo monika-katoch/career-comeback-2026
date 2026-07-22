@@ -246,7 +246,7 @@ public record Employee(
 public record Department(
     int Id,
     string Name);*/
-    
+
 /////--------------------SelectMany---------------------------/////////////
 
 /*var employees = new List<Employee>
@@ -298,7 +298,7 @@ public record Employee(
     List<string> Skills);*/
 
 ///////////////////-------SkillWhile() TakeWhile()------------///////////////
-var numbers = new List<int>
+/*var numbers = new List<int>
 {
     10,20,30,40,50,60,70,80
 };
@@ -315,9 +315,10 @@ var numberSkip = numbers.SkipWhile(n => n < 60);
 foreach (var number in numberSkip)
 {
     Console.WriteLine(number);
-}
+}*/
 
 ////////////////-----------Aggregation Functions---------------/////////
+
 var employees = new List<Employee>
 {
     new("Monika", 12, "Engineering", 150000),
@@ -326,7 +327,7 @@ var employees = new List<Employee>
     new("Priya", 2, "Finance", 60000),
     new("Neha", 10, "Engineering", 130000)
 };
-//Exercise 1: Write a LINQ query to calculate the total salary.
+/*//Exercise 1: Write a LINQ query to calculate the total salary.
 var totalSal = employees.Sum(e => e.Salary);
 Console.WriteLine($"Total Salary: {totalSal}");
 
@@ -341,4 +342,109 @@ Console.WriteLine($"Minimum Experience: {minExp}");
 //Exercise 4: Write a LINQ query to find the maximum salary.
 var maxSal = employees.Max(e=>e.Salary);
 Console.WriteLine($"Maximum Salary: {maxSal}");
+*/
 
+/////////////----------Contains()-----------///////////
+/*var numbers = new List<int>
+{
+    10, 20, 30, 40, 50
+};
+
+//Exercise 1: Write a LINQ query to check whether the collection contains 30.
+var result = numbers.Contains(30);
+Console.WriteLine(result);
+
+//Exercise 2: Write a LINQ query to check whether the collection contains 100.
+var result2 = numbers.Contains(100);
+Console.WriteLine(result2);
+
+//Exercise 3: Using employee list, write a LINQ query to check whether any employee has the name "Monika" using Contains()
+var checkEmp = employees.Select(e=>e.Name).Contains( "Monika");
+Console.WriteLine(checkEmp);
+
+//Exercise 4: Write a LINQ query to check whether any employee has "Engineering" as their department, using Contains().
+var checkDep = employees.Select(e=>e.Department).Contains("Engineering");
+Console.WriteLine(checkDep);*/
+
+/////////////----------OffType()---------////////////
+/*var items = new List<object>
+{
+    10,
+    "Monika",
+    20,
+    "Rahul",
+    30,
+    true
+};
+
+//Exercise 1 — OfType<int>() Write code to print only the integer values.
+var resultInt =  items.OfType<int>();
+foreach (var item in resultInt)
+{
+    Console.WriteLine(item);
+}
+
+//Exercise 2 — OfType<string>() Write code to print only the string values.
+var resultString = items.OfType<string>();
+foreach (var item in resultString)
+{
+    Console.WriteLine(item);
+}
+
+//Exercise 3 — Count integers Write a LINQ query using OfType<int>() to find how many integer values are present.
+var resCount = items.OfType<int>().Count();
+Console.WriteLine(resCount);
+
+//Exercise 4 — Count strings Write a LINQ query using OfType<string>() to find how many string values are present.
+var resStringCount = items.OfType<string>().Count();
+Console.WriteLine(resStringCount);
+
+////------Cast<int>()
+var numbers = new List<object>
+{
+    10,
+    20,
+    30
+};
+
+//Exercise 5 — Cast<int>()
+var castRes = numbers.Cast<int>();
+foreach (var item in castRes)
+{
+    Console.WriteLine(item);
+}*/
+
+
+//------------ZIP()-------------//
+var employeeNames = employees.Select(e => e.Name);
+var departments = employees.Select(e => e.Department);
+var enumEmp = employeeNames.ToList();
+var enumDep = departments.ToList();
+
+//Exercise 1: Use Zip() to combine employee names and departments.
+var empD = enumEmp.Zip(enumDep);
+foreach (var emp in empD)
+{
+    Console.WriteLine($"{emp.First} - {emp.Second}");   
+}
+
+//Exercise 2 Use Zip() to combine: employee names and salaries.
+var empNames = employees.Select(e => e.Name);
+var salaries = employees.Select(e => e.Salary);
+
+var empSal = empNames.Zip(salaries);
+foreach (var emp in empSal)
+{
+    Console.WriteLine($"{emp.First} - {emp.Second}");
+}
+
+//Exercise 3: Use Zip() with a result selector to directly create a formatted string.
+var result = enumEmp.Zip(
+    enumDep,
+    (name, department) => $"{name} - {department}"
+);
+
+foreach (var emp in result)
+{
+    Console.WriteLine(emp);
+}
