@@ -822,3 +822,114 @@ foreach (var number in result)
     Console.WriteLine(number);
 }
 ```
+
+
+### Zip()
+
+- Combines two sequences element-by-element based on their position/index.
+- Pairs the first element of the first sequence with the first element of the second sequence, and so on.
+- When sequences have different lengths, `Zip()` stops when the shorter sequence ends.
+- Remaining elements in the longer sequence are ignored.
+- Does not add `null` for unmatched elements.
+- Supports a result selector to directly control the output format.
+
+Example:
+
+var employeeNames = employees.Select(e => e.Name);
+var departments = employees.Select(e => e.Department);
+
+var result = employeeNames.Zip(
+    departments,
+    (name, department) => $"{name} - {department}"
+);
+
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
+
+Output:
+
+Monika - Engineering
+Rahul - HR
+Amit - Engineering
+Priya - Finance
+Neha - Engineering
+
+Key Point:
+
+`Zip()` combines two sequences element-by-element and stops when the shorter sequence ends.
+
+Easy Way to Remember:
+
+`Zip()` → Pair elements from two sequences based on their position.
+
+### Range()
+
+- Generates a sequence of consecutive integers.
+- Syntax: `Enumerable.Range(start, count)`
+- The first parameter specifies the starting number.
+- The second parameter specifies how many values to generate.
+- When `count` is `0`, it returns an empty sequence.
+- A negative `count` throws an `ArgumentOutOfRangeException`.
+- Can be combined with other LINQ operators such as `Where()`, `Select()`, and `Sum()`.
+
+Example:
+
+var numbers = Enumerable.Range(1, 5);
+
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}
+
+Output:
+
+1
+2
+3
+4
+5
+
+Using `Range()` with `Where()`:
+
+var evenNumbers = Enumerable.Range(1, 10)
+                             .Where(n => n % 2 == 0);
+
+Output:
+
+2
+4
+6
+8
+10
+
+Using `Range()` with `Sum()`:
+
+var sum = Enumerable.Range(1, 10).Sum();
+
+Result:
+
+55
+
+Special Cases:
+
+Enumerable.Range(1, 0);
+
+Returns an empty sequence.
+
+Enumerable.Range(1, -1);
+
+Throws `ArgumentOutOfRangeException`.
+
+Key Point:
+
+`Enumerable.Range(start, count)` starts from the specified starting number and generates the specified number of consecutive integers.
+
+Easy Way to Remember:
+
+`Range(start, count)` → Start number + Number of values to generate.
+
+
+
+
