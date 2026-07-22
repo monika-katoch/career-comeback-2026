@@ -864,6 +864,72 @@ Easy Way to Remember:
 
 `Zip()` → Pair elements from two sequences based on their position.
 
+### Range()
+
+- Generates a sequence of consecutive integers.
+- Syntax: `Enumerable.Range(start, count)`
+- The first parameter specifies the starting number.
+- The second parameter specifies how many values to generate.
+- When `count` is `0`, it returns an empty sequence.
+- A negative `count` throws an `ArgumentOutOfRangeException`.
+- Can be combined with other LINQ operators such as `Where()`, `Select()`, and `Sum()`.
+
+Example:
+
+var numbers = Enumerable.Range(1, 5);
+
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}
+
+Output:
+
+1
+2
+3
+4
+5
+
+Using `Range()` with `Where()`:
+
+var evenNumbers = Enumerable.Range(1, 10)
+                             .Where(n => n % 2 == 0);
+
+Output:
+
+2
+4
+6
+8
+10
+
+Using `Range()` with `Sum()`:
+
+var sum = Enumerable.Range(1, 10).Sum();
+
+Result:
+
+55
+
+Special Cases:
+
+Enumerable.Range(1, 0);
+
+Returns an empty sequence.
+
+Enumerable.Range(1, -1);
+
+Throws `ArgumentOutOfRangeException`.
+
+Key Point:
+
+`Enumerable.Range(start, count)` starts from the specified starting number and generates the specified number of consecutive integers.
+
+Easy Way to Remember:
+
+`Range(start, count)` → Start number + Number of values to generate.
+
 
 
 
