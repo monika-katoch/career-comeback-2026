@@ -451,7 +451,7 @@ foreach (var emp in result)
 
 ///////-----------RANGE---------///////////
 
-//Exercise 1: Write a LINQ query using Range() to print:
+/*//Exercise 1: Write a LINQ query using Range() to print:
 var res = Enumerable.Range(1, 10);
 foreach (var i in res)
 {
@@ -474,5 +474,24 @@ foreach (var i in evenList)
 
 //Exercise 4: Use Range() with LINQ to calculate the sum of numbers from 1 to 10.
 var rangeSum = Enumerable.Range(1, 10).Sum();
-Console.WriteLine(rangeSum);
+Console.WriteLine(rangeSum);*/
 
+//------------------REPEAT()-----------//
+//Exercise 1: Write a LINQ query using Repeat() to print "Hello" 5 times.
+var repeatResult = Enumerable.Repeat("Hello", 5);
+foreach (var item in repeatResult)
+{
+    Console.WriteLine(item);
+}
+
+//Exercise 2: Write a LINQ query using Repeat() to generate the number 10 4 times and print the values.
+var repRes = Enumerable.Repeat(10, 4);
+foreach (var item in repRes)
+{
+    Console.WriteLine(item);
+}
+
+//Exercise 3: Use Repeat() to create a sequence containing the string "Pending" 3 times.
+// Then use Count() to find how many "Pending" values are present.
+var repCount =  Enumerable.Repeat("Pending", 3).Count();
+Console.WriteLine(repCount);
