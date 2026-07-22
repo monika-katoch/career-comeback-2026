@@ -931,5 +931,89 @@ Easy Way to Remember:
 `Range(start, count)` → Start number + Number of values to generate.
 
 
+### Repeat()
+
+- Generates a sequence where the same value is repeated a specified number of times.
+- Syntax: `Enumerable.Repeat(value, count)`
+- The first parameter specifies the value to repeat.
+- The second parameter specifies how many times to repeat the value.
+- When `count` is `0`, it returns an empty sequence.
+- A negative `count` throws an `ArgumentOutOfRangeException`.
+
+Example:
+
+var result = Enumerable.Repeat("Hello", 5);
+
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
+
+Output:
+
+Hello
+Hello
+Hello
+Hello
+Hello
+
+Using `Repeat()` with `Count()`:
+
+var count = Enumerable.Repeat("Pending", 3).Count();
+
+Result:
+
+3
+
+Special Cases:
+
+Enumerable.Repeat("Hello", 0);
+
+Returns an empty sequence.
+
+Enumerable.Repeat("Hello", -1);
+
+Throws `ArgumentOutOfRangeException`.
+
+### Range() vs Repeat()
+
+`Range()` generates consecutive values.
+
+Example:
+
+Enumerable.Range(1, 5);
+
+Output:
+
+1
+2
+3
+4
+5
+
+`Repeat()` generates the same value multiple times.
+
+Example:
+
+Enumerable.Repeat(1, 5);
+
+Output:
+
+1
+1
+1
+1
+1
+
+### Key Point
+
+`Repeat()` generates the same value repeatedly for the specified number of times.
+
+### Easy Way to Remember
+
+`Range()` → Different consecutive values
+
+`Repeat()` → Same value repeated
+
 
 
