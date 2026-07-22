@@ -822,3 +822,48 @@ foreach (var number in result)
     Console.WriteLine(number);
 }
 ```
+
+
+### Zip()
+
+- Combines two sequences element-by-element based on their position/index.
+- Pairs the first element of the first sequence with the first element of the second sequence, and so on.
+- When sequences have different lengths, `Zip()` stops when the shorter sequence ends.
+- Remaining elements in the longer sequence are ignored.
+- Does not add `null` for unmatched elements.
+- Supports a result selector to directly control the output format.
+
+Example:
+
+var employeeNames = employees.Select(e => e.Name);
+var departments = employees.Select(e => e.Department);
+
+var result = employeeNames.Zip(
+    departments,
+    (name, department) => $"{name} - {department}"
+);
+
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
+
+Output:
+
+Monika - Engineering
+Rahul - HR
+Amit - Engineering
+Priya - Finance
+Neha - Engineering
+
+Key Point:
+
+`Zip()` combines two sequences element-by-element and stops when the shorter sequence ends.
+
+Easy Way to Remember:
+
+`Zip()` → Pair elements from two sequences based on their position.
+
+
+
+
