@@ -705,6 +705,277 @@ Answer:
 Sum()
 ```
 
+# LINQ - All() and Contains()
+
+## 1. What does All() do in LINQ?
+
+`All()` checks whether every element in a collection satisfies a specified condition.
+
+```csharp
+var result = numbers.All(n => n > 0);
+```
+
+It returns:
+
+- `true` when all elements satisfy the condition.
+- `false` when at least one element fails the condition.
+
+---
+
+## 2. What does All() return for an empty collection?
+
+`All()` returns:
+
+```text
+true
+```
+
+for an empty collection.
+
+Example:
+
+```csharp
+var numbers = new List<int>();
+
+var result = numbers.All(n => n > 0);
+```
+
+Result:
+
+```text
+true
+```
+
+No exception is thrown.
+
+---
+
+## 3. What is the difference between All() and Any()?
+
+`All()` checks whether **every element** satisfies a condition.
+
+```csharp
+numbers.All(n => n > 0);
+```
+
+`Any()` checks whether **at least one element** satisfies a condition.
+
+```csharp
+numbers.Any(n => n > 0);
+```
+
+---
+
+## 4. What does Contains() do in LINQ?
+
+`Contains()` checks whether a collection contains a specific value.
+
+```csharp
+numbers.Contains(30);
+```
+
+It returns a Boolean value:
+
+```text
+true
+```
+
+or:
+
+```text
+false
+```
+
+---
+
+## 5. What is the difference between Contains() and Any()?
+
+`Contains()` checks for a specific value.
+
+```csharp
+employees
+    .Select(e => e.Name)
+    .Contains("Monika");
+```
+
+`Any()` checks whether at least one element satisfies a condition.
+
+```csharp
+employees.Any(e => e.Name == "Monika");
+```
+
+Use `Contains()` when checking for a specific value.
+
+Use `Any()` when checking a condition.
+
+---
+
+## 6. How does equality affect Contains()?
+
+`Contains()` relies on equality comparison.
+
+For normal classes, reference equality is used by default unless equality is overridden.
+
+For records, value-based equality is used by default.
+
+Therefore, two records with identical values can be considered equal by `Contains()`.
+
+---
+
+## 7. Which is better for checking whether any employee earns more than 100000?
+
+```csharp
+employees
+    .Select(e => e.Salary)
+    .Contains(100000);
+```
+
+or:
+
+```csharp
+employees.Any(e => e.Salary > 100000);
+```
+
+### Answer
+
+The second option is correct:
+
+```csharp
+employees.Any(e => e.Salary > 100000);
+```
+
+`Contains(100000)` checks for a salary exactly equal to `100000`.
+
+`Any(e => e.Salary > 100000)` checks whether at least one employee has a salary greater than `100000`.
+
+---
+
+## 8. Interview Scenario
+
+### Question
+
+What is the output?
+
+```csharp
+var numbers = new List<int>();
+
+var result = numbers.All(n => n > 0);
+
+Console.WriteLine(result);
+```
+
+### Answer
+
+```text
+true
+```
+
+`All()` returns `true` for an empty collection.
+
+---
+
+## 9. Interview Scenario
+
+### Question
+
+What is the output?
+
+```csharp
+var numbers = new List<int>
+{
+    10, 20, 30
+};
+
+var result = numbers.All(n => n > 10);
+
+Console.WriteLine(result);
+```
+
+### Answer
+
+```text
+false
+```
+
+The value `10` does not satisfy `10 > 10`.
+
+
+---
+## LINQ - OfType() and Cast()
+
+### 1. What is OfType<T>() in LINQ?
+
+`OfType<T>()` filters a collection and returns only elements that are compatible with the specified type.
+
+---
+
+### 2. What happens when OfType<T>() finds no matching elements?
+
+It returns an empty sequence.
+
+It does not throw an exception and does not return `null`.
+
+---
+
+### 3. What is Cast<T>() in LINQ?
+
+`Cast<T>()` attempts to cast every element in a collection to the specified type.
+
+---
+
+### 4. What happens if Cast<T>() encounters an incompatible type?
+
+It throws an `InvalidCastException` when the incompatible element is encountered during enumeration.
+
+---
+
+### 5. What is the difference between OfType<T>() and Cast<T>()?
+
+`OfType<T>()` filters a sequence and returns only elements compatible with the specified type. Incompatible elements are ignored.
+
+`Cast<T>()` attempts to cast every element to the specified type. If an element cannot be cast, an `InvalidCastException` is thrown during enumeration.
+
+---
+
+### 6. When would you use OfType<T>()?
+
+Use `OfType<T>()` when working with a mixed-type collection and you only want elements of a particular type.
+
+---
+
+### 7. When would you use Cast<T>()?
+
+Use `Cast<T>()` when you know that all elements in the sequence are compatible with the target type and you want to cast them to that type.
+
+---
+
+### 8. Are OfType() and Cast() deferred execution operators?
+
+Yes. Both use deferred execution.
+
+The query is evaluated when the result is enumerated, such as with `foreach`, or when a terminal operation such as `ToList()` is executed.
+
+---
+
+### 9. What is the output?
+
+```csharp
+var items = new List<object>
+{
+    10,
+    "Monika",
+    30
+};
+
+var result = items.OfType<int>();
+
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
+```
+
+
 
 
 

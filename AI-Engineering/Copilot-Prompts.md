@@ -159,3 +159,28 @@ Include:
 - Performance
 - SQL translation in EF Core
 - Real-world examples
+
+## LINQ - All() and Contains()
+
+Use Copilot to compare the following LINQ approaches:
+
+```csharp
+employees.All(e => e.Experience >= 2);
+
+employees.Any(e => e.Experience >= 2);
+
+employees.Select(e => e.Name).Contains("Monika");
+
+employees.Any(e => e.Name == "Monika");
+```
+
+Ask Copilot to explain:
+
+1. What each query does.
+2. The difference between `All()` and `Any()`.
+3. The difference between `Contains()` and `Any()`.
+4. How equality affects `Contains()` when working with classes and records.
+5. Whether the queries can be translated to SQL when used with Entity Framework Core.
+6. Which approach is most readable for each requirement.
+
+Then manually verify Copilot's explanation and compare it with the LINQ concepts learned.
