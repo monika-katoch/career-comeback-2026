@@ -1054,6 +1054,68 @@ Q: What is the difference between the two parameters of `Enumerable.Range()`?
 
 A: The first parameter is the starting number, and the second parameter specifies how many consecutive values should be generated.
 
+### Repeat()
+
+Q: What is `Enumerable.Repeat()` in LINQ?
+
+A: `Enumerable.Repeat()` generates a sequence where the same value is repeated a specified number of times.
+
+Q: What is the syntax of `Enumerable.Repeat()`?
+
+A: `Enumerable.Repeat(value, count)`
+
+The first parameter specifies the value to repeat, and the second parameter specifies how many times to repeat it.
+
+Q: What is the output of `Enumerable.Repeat("Hello", 3)`?
+
+A:
+
+Hello
+Hello
+Hello
+
+Q: What happens when the count is `0`?
+
+A: `Enumerable.Repeat(value, 0)` returns an empty sequence.
+
+Q: What happens when the count is negative?
+
+A: `Enumerable.Repeat()` throws an `ArgumentOutOfRangeException`.
+
+Q: What is the difference between `Range()` and `Repeat()`?
+
+A: `Range()` generates consecutive values, while `Repeat()` generates the same value repeatedly.
+
+Example:
+
+Enumerable.Range(1, 5);
+
+Output:
+
+1
+2
+3
+4
+5
+
+Enumerable.Repeat(1, 5);
+
+Output:
+
+1
+1
+1
+1
+1
+
+Q: Can `Repeat()` be combined with other LINQ operators?
+
+A: Yes. It can be combined with operators such as `Count()`, `Where()`, and `Select()`.
+
+Q: What is the output of `Enumerable.Repeat("Pending", 3).Count()`?
+
+A: `3`.
+
 
 
 
