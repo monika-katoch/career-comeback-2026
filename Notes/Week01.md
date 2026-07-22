@@ -772,4 +772,53 @@ Class → reference equality by default
 Record → value equality by default
 ```
 
+## LINQ Type Operators
 
+### OfType<T>()
+
+`OfType<T>()` is a LINQ type operator used to filter a collection and return only elements that are compatible with the specified type.
+
+It is particularly useful when working with collections containing objects of different types.
+
+Example:
+
+```csharp
+var items = new List<object>
+{
+    10,
+    "Monika",
+    20,
+    "Rahul",
+    30,
+    true
+};
+
+var numbers = items.OfType<int>();
+
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}
+```
+
+### Cast<T>()
+
+`Cast<T>()` attempts to cast every element in a collection to the specified type.
+
+Example:
+
+```csharp
+var numbers = new List<object>
+{
+    10,
+    20,
+    30
+};
+
+var result = numbers.Cast<int>();
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+```
