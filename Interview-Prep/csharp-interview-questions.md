@@ -1012,6 +1012,49 @@ A:
 - Product names and prices
 - Questions and answers
 
+### Range()
+
+Q: What is `Enumerable.Range()` in LINQ?
+
+A: `Enumerable.Range()` generates a sequence of consecutive integers.
+
+Q: What is the syntax of `Enumerable.Range()`?
+
+A: `Enumerable.Range(start, count)`
+
+The first parameter specifies the starting number, and the second parameter specifies how many values to generate.
+
+Q: What is the output of `Enumerable.Range(10, 5)`?
+
+A:
+
+10
+11
+12
+13
+14
+
+Q: What happens when the count is `0`?
+
+A: `Enumerable.Range(start, 0)` returns an empty sequence.
+
+Q: What happens when the count is negative?
+
+A: `Enumerable.Range()` throws an `ArgumentOutOfRangeException`.
+
+Q: Can `Range()` be combined with other LINQ operators?
+
+A: Yes. It can be combined with operators such as `Where()`, `Select()`, and `Sum()`.
+
+Q: What is the output of `Enumerable.Range(1, 10).Sum()`?
+
+A: `55`.
+
+Q: What is the difference between the two parameters of `Enumerable.Range()`?
+
+A: The first parameter is the starting number, and the second parameter specifies how many consecutive values should be generated.
+
+
 
 
 
