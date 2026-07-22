@@ -1102,4 +1102,141 @@ foreach (var employee in GetEmployees())
 
 `Empty<T>()` → Valid sequence with zero elements.
 
+### Deferred Execution
+
+- Deferred Execution means a LINQ query is defined but not executed immediately.
+- The query is executed when the result is enumerated.
+- Common ways to trigger execution include:
+  - `foreach`
+  - `ToList()`
+  - `ToArray()`
+  - `Count()`
+  - `First()`
+- If the underlying collection changes before the query is enumerated, the query can reflect those changes.
+- A deferred query can be executed again each time it is enumerated.
+
+Example:
+
+var numbers = new List<int>
+{
+    10,
+    20,
+    30
+};
+
+var result = numbers.Where(n => n > 10);
+
+numbers.Add(40);
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+Output:
+
+20
+30
+40
+
+The `Where()` query is defined before `40` is added, but because of deferred execution, the filtering happens when the `foreach` enumerates the query.
+
+### Query Can Execute Again
+
+Example:
+
+var numbers = new List<int>
+{
+    10,
+    20,
+    30
+};
+
+var result = numbers.Where(n => n > 10);
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+numbers.Add(40);
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+First `foreach` output:
+
+20
+30
+
+Second `foreach` output:
+
+20
+30
+40
+
+The deferred query is evaluated again when the second `foreach` enumerates it.
+
+### Deferred Execution vs ToList()
+
+Deferred execution:
+
+var result = numbers.Where(n => n > 10);
+
+The query is defined but execution is deferred until enumeration.
+
+Immediate execution with `ToList()`:
+
+var result = numbers
+    .Where(n => n > 10)
+    .ToList();
+
+`ToList()` forces the query to execute immediately and materializes the results into a new list.
+
+Example:
+
+var numbers = new List<int>
+{
+    10,
+    20,
+    30
+};
+
+var result = numbers
+    .Where(n => n > 10)
+    .ToList();
+
+numbers.Add(40);
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+Output:
+
+20
+30
+
+`40` is not included because `ToList()` already executed the query and stored the results before `40` was added.
+
+### Key Point
+
+`Where()` → Deferred execution.
+
+`ToList()` → Forces immediate execution and materializes the results.
+
+### Easy Way to Remember
+
+Deferred Execution → Query now, execute later.
+
+`ToList()` → Execute now, store results.
+
+### Interview Explanation
+
+Deferred execution means a LINQ query does not execute when it is defined. The query executes when the result is enumerated. Calling `ToList()` forces immediate execution and materializes the current query results into a new list.
+
+
 
