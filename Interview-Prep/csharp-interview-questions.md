@@ -1116,7 +1116,58 @@ Q: What is the output of `Enumerable.Repeat("Pending", 3).Count()`?
 
 A: `3`.
 
+### Empty()
 
+Q: What is `Enumerable.Empty<T>()`?
+
+A: `Enumerable.Empty<T>()` returns an empty sequence of the specified type.
+
+Q: What does `Enumerable.Empty<int>().Count()` return?
+
+A: `0`.
+
+Q: What does `Enumerable.Empty<string>().Any()` return?
+
+A: `False`.
+
+Q: What happens when you use `foreach` on an empty sequence?
+
+A: The loop performs zero iterations and nothing is printed. No exception is thrown.
+
+Q: Why is `Enumerable.Empty<T>()` preferred over returning `null`?
+
+A: It returns a valid empty sequence, so callers can safely enumerate the result without needing to perform a `null` check. Returning `null` can cause a `NullReferenceException` when the caller tries to enumerate the result.
+
+Q: What is the difference between `Enumerable.Empty<T>()` and `new List<T>()`?
+
+A: `Enumerable.Empty<T>()` represents an empty sequence and is generally used when returning an empty `IEnumerable<T>`. `new List<T>()` creates a new mutable empty list that supports operations such as `Add()` and `Remove()`.
+
+Q: What is the output of the following code?
+
+var result = Enumerable.Empty<int>();
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+A: Nothing is printed because the sequence contains zero elements.
+
+Q: How can `Enumerable.Empty<T>()` be used in a real-world method?
+
+A:
+
+public IEnumerable<Employee> GetEmployees()
+{
+    if (employees == null)
+    {
+        return Enumerable.Empty<Employee>();
+    }
+
+    return employees;
+}
+
+This prevents callers from having to handle `null` when enumerating the result.
 
 
 
