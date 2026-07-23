@@ -477,7 +477,7 @@ var rangeSum = Enumerable.Range(1, 10).Sum();
 Console.WriteLine(rangeSum);*/
 
 //------------------REPEAT()-----------//
-//Exercise 1: Write a LINQ query using Repeat() to print "Hello" 5 times.
+/*//Exercise 1: Write a LINQ query using Repeat() to print "Hello" 5 times.
 var repeatResult = Enumerable.Repeat("Hello", 5);
 foreach (var item in repeatResult)
 {
@@ -494,4 +494,20 @@ foreach (var item in repRes)
 //Exercise 3: Use Repeat() to create a sequence containing the string "Pending" 3 times.
 // Then use Count() to find how many "Pending" values are present.
 var repCount =  Enumerable.Repeat("Pending", 3).Count();
-Console.WriteLine(repCount);
+Console.WriteLine(repCount);*/
+
+//////----------EMPTY()----------//////
+//Exercise 1: Write a LINQ query using Enumerable.Empty<int>() and use Count() to verify that the sequence contains 0 elements.
+var res = Enumerable.Empty<int>().Count();
+Console.WriteLine(res);
+
+//Exercise 2: Create an empty sequence of string using Enumerable.Empty<string>() and use Any() to check whether it contains any elements.
+var resAny = Enumerable.Empty<string>().Any();
+Console.WriteLine(resAny);
+
+//Exercise 3: Create an empty sequence of Employee using: Enumerable.Empty<Employee>() Then use foreach to print the employees. What will happen?
+var resEmp = Enumerable.Empty<Employee>();
+foreach (var employee in resEmp)
+{
+    Console.WriteLine(employee);
+}
