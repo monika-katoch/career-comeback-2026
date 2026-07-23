@@ -1116,7 +1116,126 @@ Q: What is the output of `Enumerable.Repeat("Pending", 3).Count()`?
 
 A: `3`.
 
+### Empty()
 
+Q: What is `Enumerable.Empty<T>()`?
+
+A: `Enumerable.Empty<T>()` returns an empty sequence of the specified type.
+
+Q: What does `Enumerable.Empty<int>().Count()` return?
+
+A: `0`.
+
+Q: What does `Enumerable.Empty<string>().Any()` return?
+
+A: `False`.
+
+Q: What happens when you use `foreach` on an empty sequence?
+
+A: The loop performs zero iterations and nothing is printed. No exception is thrown.
+
+Q: Why is `Enumerable.Empty<T>()` preferred over returning `null`?
+
+A: It returns a valid empty sequence, so callers can safely enumerate the result without needing to perform a `null` check. Returning `null` can cause a `NullReferenceException` when the caller tries to enumerate the result.
+
+Q: What is the difference between `Enumerable.Empty<T>()` and `new List<T>()`?
+
+A: `Enumerable.Empty<T>()` represents an empty sequence and is generally used when returning an empty `IEnumerable<T>`. `new List<T>()` creates a new mutable empty list that supports operations such as `Add()` and `Remove()`.
+
+Q: What is the output of the following code?
+
+var result = Enumerable.Empty<int>();
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+A: Nothing is printed because the sequence contains zero elements.
+
+Q: How can `Enumerable.Empty<T>()` be used in a real-world method?
+
+A:
+
+public IEnumerable<Employee> GetEmployees()
+{
+    if (employees == null)
+    {
+        return Enumerable.Empty<Employee>();
+    }
+
+    return employees;
+}
+
+This prevents callers from having to handle `null` when enumerating the result.
+
+### Deferred Execution
+
+Q: What is Deferred Execution in LINQ?
+
+A: Deferred Execution means a LINQ query is defined but not executed immediately. The query executes when the result is enumerated, such as through `foreach` or when an execution operator such as `ToList()`, `ToArray()`, `Count()`, or `First()` is called.
+
+Q: When does a LINQ query using `Where()` execute?
+
+A: `Where()` uses deferred execution. The query executes when the result is enumerated.
+
+Q: What happens if the underlying collection changes before a deferred query is enumerated?
+
+A: The query may reflect the updated collection because the filtering has not yet been executed.
+
+Q: Can a deferred LINQ query execute more than once?
+
+A: Yes. A deferred query can be evaluated again each time it is enumerated.
+
+Q: What is the difference between these two statements?
+
+var result = numbers.Where(n => n > 10);
+
+var result = numbers.Where(n => n > 10).ToList();
+
+A:
+
+The first statement uses deferred execution. The query is defined but execution is delayed until enumeration.
+
+The second statement forces immediate execution because `ToList()` enumerates the query and materializes the results into a new list.
+
+Q: Why is `40` included in this example?
+
+var numbers = new List<int>
+{
+    10,
+    20,
+    30
+};
+
+var result = numbers.Where(n => n > 10);
+
+numbers.Add(40);
+
+foreach (var number in result)
+{
+    Console.WriteLine(number);
+}
+
+A: `Where()` uses deferred execution. The query is executed when the `foreach` enumerates it, at which point `40` has already been added to the collection.
+
+Q: Why is `40` not included in this example?
+
+var result = numbers
+    .Where(n => n > 10)
+    .ToList();
+
+numbers.Add(40);
+
+A: `ToList()` forces immediate execution and materializes the results into a new list before `40` is added.
+
+Q: What is the key difference between Deferred Execution and Immediate Execution?
+
+A: Deferred Execution delays query execution until enumeration, while Immediate Execution executes the query immediately and materializes or calculates the result.
+
+Q: What is a strong interview explanation for Deferred Execution?
+
+A: Deferred execution means a LINQ query does not execute when it is defined. The query executes when the result is enumerated. Calling `ToList()` forces immediate execution and materializes the current query results into a new list.
 
 
 
