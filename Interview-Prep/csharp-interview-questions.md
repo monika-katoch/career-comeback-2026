@@ -1237,6 +1237,91 @@ Q: What is a strong interview explanation for Deferred Execution?
 
 A: Deferred execution means a LINQ query does not execute when it is defined. The query executes when the result is enumerated. Calling `ToList()` forces immediate execution and materializes the current query results into a new list.
 
+### Immediate Execution
+
+Q: What is Immediate Execution in LINQ?
+
+A: Immediate Execution means a LINQ query is executed immediately when an operator forces the query to run.
+
+Q: Which LINQ operators commonly force immediate execution?
+
+A:
+- `ToList()`
+- `ToArray()`
+- `Count()`
+- `Sum()`
+- `Average()`
+- `Min()`
+- `Max()`
+- `First()`
+- `FirstOrDefault()`
+- `Single()`
+- `Any()`
+
+Q: What does `ToList()` do to a deferred LINQ query?
+
+A: `ToList()` forces the query to execute immediately and materializes the current results into a new `List<T>`.
+
+Q: Why is `40` not included in this example?
+
+var result = numbers
+    .Where(n => n > 10)
+    .ToList();
+
+numbers.Add(40);
+
+A: `ToList()` forces immediate execution before `40` is added. The results are stored in a new list, so adding `40` to the original collection does not affect the materialized list.
+
+Q: Does a deferred LINQ query cache its results after the first execution?
+
+A: No. A deferred query does not automatically cache its results. If the query is enumerated multiple times, it can execute multiple times.
+
+Q: How many times can the following `Where()` query execute?
+
+var engineeringEmployees = employees
+    .Where(e => e.Department == "Engineering");
+
+var count = engineeringEmployees.Count();
+
+var list = engineeringEmployees.ToList();
+
+A: The filtering can potentially execute twice. `Count()` forces the first execution, and `ToList()` forces the deferred query to execute again.
+
+Q: How can you avoid executing the same deferred query multiple times?
+
+A: Materialize the query once using `ToList()` or `ToArray()` and reuse the materialized collection.
+
+Example:
+
+var engineeringEmployees = employees
+    .Where(e => e.Department == "Engineering")
+    .ToList();
+
+var count = engineeringEmployees.Count;
+
+var list = engineeringEmployees;
+
+Q: What is the difference between Deferred Execution and Immediate Execution?
+
+A: Deferred Execution delays query execution until enumeration, while Immediate Execution executes the query immediately when an execution operator is called.
+
+Q: Give an interview example of Deferred vs Immediate Execution.
+
+A:
+
+Deferred:
+
+var result = numbers.Where(n => n > 10);
+
+The query is defined but execution is deferred.
+
+Immediate:
+
+var result = numbers
+    .Where(n => n > 10)
+    .ToList();
+
+`ToList()` forces immediate execution and materializes the results into a new list.
 
 
 
